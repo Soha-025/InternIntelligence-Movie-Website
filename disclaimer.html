@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disclaimer - Moviewind</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('https://i.pinimg.com/736x/0e/e2/6b/0ee26b1dcf3a03750a04b2b758d6f9d9.jpg') no-repeat center center/cover;
+      color: #f1f1f1;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Top Links */
+    .top-links {
+      background-color: #11121A;
+      display: flex;
+      justify-content: flex-end;
+      padding: 8px 40px;
+      font-size: 14px;
+      gap: 25px;
+    }
+
+    .top-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .top-links a:hover {
+      color: #00eaff;
+    }
+
+    /* Main Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0D1321;
+      padding: 14px 40px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 600;
+      color: #92baff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00f0ff;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #1d2433;
+      padding: 5px 10px;
+      border-radius: 10px;
+      margin-left: 15px;
+    }
+
+    .search-bar input {
+      background: transparent;
+      border: none;
+      color: #fff;
+      outline: none;
+      font-size: 14px;
+      width: 160px;
+    }
+
+    .search-bar i {
+      color: #ccc;
+      margin-right: 5px;
+    }
+
+    .telegram-btn {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: 500;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .telegram-btn:hover {
+      background-color: #005dc1;
+    }
+
+    /* Disclaimer Box */
+    .disclaimer-box {
+      background-color: rgba(10, 10, 10, 0.8);
+      border-radius: 15px;
+      padding: 30px 40px;
+      max-width: 650px;
+      margin: 50px auto;
+      border: 2px solid transparent;
+      box-shadow: 0 0 10px rgba(0,255,255,0.1);
+      transition: 0.3s;
+    }
+
+    .disclaimer-box:hover {
+      border-color: #00ffff;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffff;
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 14.5px;
+      color: #ccc;
+      line-height: 1.7;
+    }
+
+    .highlight {
+      color: #00ffff;
+      font-weight: 500;
+    }
+
+    a {
+      color: #00eaff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .search-bar input {
+        width: 120px;
+      }
+
+      nav {
+        padding: 15px;
+      }
+
+      .top-links {
+        padding: 8px 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+
+     /* ======= FOOTER ======= */
+         footer {
+      background: #0b0c11;
+      text-align: center;
+      padding: 8px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Top Links -->
+  <div class="top-links">
+    <a href="../about/about.html">About</a>
+        <a href="../contact/contact.html">Contact</a>
+        <a href="../privacy/privacy.html">Privacy</a>
+        <a href="../disclaimer/disclaimer.html">Disclaimer</a>
+  </div>
+
+  <!-- Main Navbar -->
+  <nav>
+    <div class="logo">moviewind</div>
+    <a href="../index/hollywood.html">Hollywood</a>
+    <a href="../index/bollywood.html">Bollywood</a>
+    <a href="../index/korean.html">Korean</a>
+    <a href="../index/series.html">Series</a>
+
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search for a movie...">
+      </div>
+
+      <button class="telegram-btn"> Telegram</button>
+    </div>
+  </nav>
+
+  <!-- Disclaimer Box -->
+  <div class="disclaimer-box">
+    <h1>⚠️ DISCLAIMER</h1>
+    <p><span class="highlight">MOVIEWIND</span> is a platform for entertainment and educational purposes only.</p>
+    <p>We do <span class="highlight">not host</span> any files on our <span class="highlight">server</span>. All content is sourced from publicly available third-party websites freely accessible on the internet. We do not claim ownership of any videos, links, or files shared.</p>
+    <p>If you're the rightful owner and wish content to be removed or credited, contact us at 
+      <a href="mailto:contact@moviewind.com">contact@moviewind.com</a> with proof.
+    </p>
+    <p><span class="highlight">Note:</span> Downloading or watching copyrighted content without permission may be illegal in your region. Use the site at your own risk.</p>
+    <p style="text-align:center;">Thank you for visiting <span class="highlight">MOVIEWIND</span> 🎬</p>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2025 Moviewind. All Rights Reserved.</p>
+        <p>Designed by Soha</p>
+    </footer>
+
+</body>
+</html>

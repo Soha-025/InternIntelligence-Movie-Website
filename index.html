@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Moviewind </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #07090f; /* Dark blue background */
+            color: #fff;
+        }
+
+        /* ======= TOP NAVIGATION BAR ======= */
+        .top-nav {
+            background-color: #14161e; /* Darker blue/grey for top nav */
+            padding: 8px 40px; /* Adjusted padding */
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 0.85em;
+            color: #aaa;
+        }
+
+        .top-nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: color 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            color: #fff;
+        }
+
+        /* ======= MAIN HEADER STRIP (Logo, Categories, Search, Telegram) ======= */
+        .main-header-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #0d121b; /* Darker blue for header strip */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            flex-wrap: wrap; /* Allow wrapping for responsiveness */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #a5c4ff; /* Lighter blue for logo */
+            text-transform: lowercase;
+            margin-right: 20px; /* Space between logo and controls */
+        }
+
+        .main-nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between nav categories, search, and telegram */
+            flex-grow: 1; /* Allows it to take up available space */
+            justify-content: flex-end; /* Pushes content to the right */
+            flex-wrap: wrap; /* Allow wrapping for responsiveness */
+        }
+
+        .nav-categories {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-categories a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-categories a:hover {
+            color: #60a5fa; /* Lighter blue on hover */
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #0f172a; /* Darker blue for search input background */
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+
+        .search-box i {
+            color: #94a3b8; /* Greyish blue for search icon */
+            margin-right: 5px;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            font-size: 14px;
+            width: 150px;
+        }
+
+        .telegram-btn {
+            background: linear-gradient(to right, #3b82f6, #2563eb); /* Blue gradient for button */
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px; /* More rounded button */
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .telegram-btn:hover {
+            background: linear-gradient(to right, #2563eb, #1d4ed8);
+        }
+
+        /* ======= ALERT BAR ======= */
+        .alert-bar {
+            background-color: #2a2f39; /* Darker blue/grey for alert bar */
+            padding: 8px 20px;
+            text-align: center;
+            color: #cbd5e1; /* Lighter grey text */
+            font-size: 14px;
+            display: flex; /* Ensures it acts as a block and centers content */
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Space between elements */
+            position: relative; /* For close button positioning */
+            width: 100%; /* Ensures it's a full-width block */
+        }
+
+        .alert-bar .badge {
+            background-color: #60a5fa; /* Blue badge */
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        .alert-bar .close-btn {
+            position: absolute;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .alert-bar .close-btn:hover {
+            color: #ff003c;
+        }
+
+        /* ======= MOVIE GRID ======= */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            padding: 20px 40px;
+        }
+
+        .movie-card {
+            border: 2px dashed #3d5a80; /* Dashed border with blue color */
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #1e1e2f; /* Darker blue for card background */
+            transition: all 0.3s ease;
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,234,255,0.2); /* Neon glow effect */
+        }
+
+        .movie-caption {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        /* ======= FOOTER ======= */
+        footer {
+            background: #2a2f39; /* Same as header background */
+            text-align: center;
+            padding: 20px;
+            color: #ccc;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0; /* Reset margin for paragraphs within footer */
+            padding: 0;
+        }
+
+        footer p:first-child {
+            margin-bottom: 5px; /* Add some space between the two lines */
+        }
+
+
+        /* ======= RESPONSIVE ======= */
+        @media (max-width: 768px) {
+            .top-nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 8px 20px;
+            }
+            .top-nav a {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .main-header-strip {
+                flex-direction: column;
+                padding: 15px 20px;
+                align-items: flex-start;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .main-nav-controls {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .nav-categories {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .search-box, .telegram-btn {
+                margin-top: 10px;
+                width: 100%;
+                max-width: 300px; /* Constrain width on smaller screens */
+                justify-content: center;
+            }
+
+            .alert-bar {
+                flex-direction: column;
+                gap: 5px;
+                padding: 8px 10px;
+            }
+
+            .alert-bar .close-btn {
+                position: static; /* Reset position for smaller screens */
+                margin-top: 5px;
+            }
+
+            .movie-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                padding: 20px;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-links a, .nav-categories a, .search-box input, .telegram-btn {
+                font-size: 12px;
+            }
+
+           .movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  padding: 20px 40px;
+  align-items: start; /* yeh line add karo */
+}
+
+
+            .movie-caption {
+                font-size: 0.8em;
+            }
+
+            .movie-card.featured {
+            border: 2px solid #60a5fa;
+            background-color: #2d2f45;
+            transform: scale(1.05);
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== TOP NAVIGATION BAR ===== -->
+    <nav class="top-nav">
+        <a href="../about/about.html">About</a>
+        <a href="../contact/contact.html">Contact</a>
+        <a href="../privacy/privacy.html">Privacy</a>
+        <a href="../disclaimer/disclaimer.html">Disclaimer</a>
+    </nav>
+
+    <!-- ===== MAIN HEADER STRIP ===== -->
+    <header>
+        <div class="main-header-strip">
+            <div class="logo">moviewind</div>
+            <div class="main-nav-controls">
+                <nav class="nav-categories">
+                   <a href="../index/hollywood.html">Hollywood</a>
+                    <a href="../index/bollywood.html">Bollywood</a>
+                    <a href="../index/korean.html">Korean</a>
+                    <a href="../index/series.html">Series</a>
+                </nav>
+              <form class="search-box" id="searchForm">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchInput" placeholder="Search..." />
+    <button type="submit" style="display: none;"></button>
+</form>
+                
+                <button class="telegram-btn">
+                    <i class="fab fa-telegram-plane"></i> Telegram
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== ALERT ===== -->
+    <div class="alert-bar" id="alertBar">
+        <span class="badge">Alert</span> Bookmark for future visit.
+        <button class="close-btn" onclick="document.getElementById('alertBar').style.display='none';">&times;</button>
+    </div>
+
+   
+    <!-- ===== MOVIE GRID ===== -->
+    <div class="movie-grid">
+        <!-- Example card (repeat as needed) -->
+         <div class="movie-card">
+           <a href="https://www.themoviedb.org/movie/299534-avengers-endgame" target="_blank"> <img src="https://i.pinimg.com/1200x/38/2b/a0/382ba0edc76788e95c13b00223fbde4d.jpg" alt="Avengers Endgame"></a>
+            <p class="movie-caption">Avengers Endgame Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+           <a href="https://www.themoviedb.org/movie/509967-6-underground" target="_blank"> <img src="https://i.pinimg.com/1200x/46/71/d9/4671d9c8d6ebc85aec7e95dafd5fc6cc.jpg" alt="Underground"></a> 
+            <p class="movie-caption">Underground Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/tv/99966" target="_blank"> <img src="https://i.pinimg.com/736x/f5/ac/04/f5ac04df8f9a5d3386a4e1138ca5f314.jpg" alt="All of Us Are Dead"></a>
+            <p class="movie-caption">All of Us Are Dead Season 1 <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/335787-uncharted" target="_blank"> <img src="https://i.pinimg.com/736x/bc/5d/56/bc5d5687b0e52a55aeb91615c167ec3d.jpg" alt="Uncharted"></a>
+            <p class="movie-caption">Uncharted Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/453395-doctor-strange-in-the-multiverse-of-madness" target="_blank"> <img src="https://i.pinimg.com/1200x/d5/8c/62/d58c623360285d953ffd6c68afc25d5e.jpg" alt="Doctor Strange"></a>
+            <p class="movie-caption">Doctor Strange in the Multiverse of Madness Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/127585-x-men-days-of-future-past" target="_blank"> <img src="https://i.pinimg.com/736x/bc/31/d0/bc31d06dc1809570d7d3092eaf6e6312.jpg" alt="X-Men"></a>
+            <p class="movie-caption">X-Men Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/tv/71446-la-casa-de-papel" target="_blank"> <img src="https://i.pinimg.com/1200x/fc/27/3a/fc273a20e2417795a2ff4a2781be214d.jpg" alt="Money Heist"></a>
+            <p class="movie-caption">Money Heist Season 5 <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/1001912-marvel-studios-assembled-the-making-of-ms-marvel" target="_blank"> <img src="https://i.pinimg.com/1200x/64/47/d6/6447d68a35088e49e1a5967b44ca6cd9.jpg" alt="Ms Marvel"></a>
+            <p class="movie-caption">Ms Marvel Season 1 <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="" target="_blank"> <img src="https://i.pinimg.com/1200x/2c/c4/ac/2cc4ac93f8054d64e51a15edb4fdedfa.jpg" alt="Red Notice"></a>
+            <p class="movie-caption">Red Notice Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/search/tv?query=The%20Sandman" target="_blank"> <img src="https://i.pinimg.com/1200x/27/97/96/279796b4c2fb93e40ef658712475d16d.jpg" alt="Sandman"></a>
+            <p class="movie-caption">The Sandman Season 1 <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/634649-spider-man-no-way-home" target="_blank"> <img src="https://i.pinimg.com/1200x/1c/70/de/1c70ded5654bfea544dbabe1a6d088c3.jpg" alt="Spiderman No Way Home"></a>
+            <p class="movie-caption">Spiderman No Way Home Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/tv/93405" target="_blank"> <img src="https://i.pinimg.com/1200x/3a/6c/ef/3a6cef06b284fdcd9f90cd869afe1c88.jpg" alt="Squid Game"></a>
+            <p class="movie-caption">Squid Game Season 1 <br>Download 480p 720p 1080p</p>
+        </div>
+    </div>
+
+    <!-- Search Filter Script -->
+  <script>
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const input = this.value.toLowerCase();
+    const movies = document.querySelectorAll('.movie-card');
+
+    movies.forEach(movie => {
+      const caption = movie.querySelector('.movie-caption').textContent.toLowerCase();
+      if (caption.includes(input)) {
+        movie.style.display = 'block';
+      } else {
+        movie.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2025 Moviewind. All Rights Reserved.</p>
+        <p>Designed by Soha</p>
+    </footer>
+
+</body>
+</html>

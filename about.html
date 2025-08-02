@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moviewind | About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #1c1e22, #141518);
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0b0c11;
+      padding: 10px 30px;
+      border-bottom: 1px solid #1e1e2f;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .top-nav a {
+      color: #ccc;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    nav {
+      background: #121826;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: 600;
+      color: #9bb9ff;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00eaff;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: #0f172a;
+      padding: 6px 15px;
+      border-radius: 8px;
+    }
+
+    .search-bar input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      margin-left: 10px;
+    }
+
+    .telegram-btn {
+      background: #2e70f0;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-left: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    main {
+      min-height: 80vh;
+      background: rgba(13, 15, 20, 0.95);
+      padding: 60px 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .policy-container {
+      max-width: 900px;
+      background: rgba(18, 24, 38, 0.95);
+      border-radius: 20px;
+      padding: 50px;
+      border: 2px dashed #00eaff;
+      box-shadow: 0 0 25px rgba(0, 255, 200, 0.15);
+    }
+
+    .policy-container h1 {
+      font-size: 36px;
+      color: #00eaff;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .team-list h2 {
+      color: #00eaff;
+      margin-top: 30px;
+    }
+
+    .team-list ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .team-list li {
+      margin-bottom: 12px;
+    }
+
+    .team-list li strong {
+      color: #fff;
+    }
+
+    footer {
+      background: #0b0c11;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="top-nav">
+      <div></div>
+      <div>
+        <a href="../about/about.html">About</a>
+        <a href="../contact/contact.html">Contact</a>
+        <a href="../privacy/privacy.html">Privacy</a>
+        <a href="../disclaimer/disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="logo">moviewind</div>
+    <ul>
+      <li><a href="../index/hollywood.html">Hollywood</a></li>
+      <li><a href="../index/bollywood.htm">Bollywood</a></li>
+      <li><a href="../index/korean.html">Korean</a></li>
+      <li><a href="../index/series.html">Series</a></li>
+    </ul>
+    <div style="display: flex; align-items: center;">
+      <div class="search-bar">
+        <span style="color: #fff;"></span>
+        <input type="text" placeholder="Search for a movie..." />
+      </div>
+      <button class="telegram-btn">Telegram</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="policy-container">
+      <h1>About Moviewind</h1>
+      <div class="about-text">
+        <p>Moviewind is your one-stop destination for exploring a wide variety of movies and series from all over the world. Whether you're a fan of Hollywood blockbusters, Bollywood dramas, thrilling Korean series, or hidden indie gems, we've got something for everyone.</p>
+
+        <p>Our mission is to provide a clean, fast, and user-friendly platform to help movie lovers find, discover, and stay updated with their favorite content. We believe in connecting fans to films and creators through an enjoyable digital experience.</p>
+      </div>
+
+      <div class="team-list">
+        <h2>Meet Our Team</h2>
+        <ul>
+          <li><strong>Daniyal Khan</strong> — CEO & Visionary behind Moviewind</li>
+          <li><strong>Sarah Malik</strong> — UI/UX Designer with a passion for elegant and functional designs</li>
+          <li><strong>Saad Ahmed</strong> — Frontend Developer responsible for turning ideas into interactive experiences</li>
+          <li><strong>Aleena Rehman</strong> — Content Manager ensuring the quality and accuracy of movie details</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+<footer>
+        <p>&copy; 2025 Moviewind. All Rights Reserved.</p>
+        <p>Designed by Soha</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moviewind | Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: url('https://i.pinimg.com/736x/57/7a/78/577a78c2797e3f311acfdc6a61669383.jpg') no-repeat center center/cover;
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0b0c11;
+      padding: 10px 30px;
+      border-bottom: 1px solid #1e1e2f;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .top-nav a {
+      color: #ccc;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    nav {
+      background: #121826;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: 600;
+      color: #9bb9ff;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00eaff;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: #0f172a;
+      padding: 6px 15px;
+      border-radius: 8px;
+    }
+
+    .search-bar input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      margin-left: 10px;
+    }
+
+    .telegram-btn {
+      background: #2e70f0;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-left: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    main {
+      min-height: 80vh;
+      background: rgba(13, 15, 20, 0.85);
+      padding: 60px 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .policy-container {
+      max-width: 900px;
+      background: rgba(18, 24, 38, 0.95);
+      border-radius: 20px;
+      padding: 40px;
+      border: 2px solid transparent;
+      transition: 0.3s ease;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.07);
+      backdrop-filter: blur(6px);
+    }
+
+    .policy-container:hover {
+      border-color: #00eaff;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.2);
+    }
+
+    .policy-container h1 {
+      font-size: 30px;
+      color: #00eaff;
+      margin-bottom: 25px;
+    }
+
+    .policy-container p,
+    .policy-container label {
+      color: #ccc;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .policy-container input,
+    .policy-container textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      background: #0d1117;
+      border: 1px solid #222;
+      color: #fff;
+      margin-bottom: 20px;
+      resize: none;
+    }
+
+    .policy-container button {
+      background: #00eaff;
+      color: #000;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #0b0c11;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="top-nav">
+      <div></div>
+      <div>
+        <a href="../about/about.html">About</a>
+        <a href="../contact/contact.html">Contact</a>
+        <a href="../privacy/privacy.html">Privacy</a>
+        <a href="../disclaimer/disclaimer.html">Disclaimer</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="logo">moviewind</div>
+    <ul>
+      <li><a href="../index/hollywood.html">Hollywood</a></li>
+      <li><a href="../index/bollywood.html">Bollywood</a></li>
+      <li><a href="../index//korean.html">Korean</a></li>
+      <li><a href="../index/series.html">Series</a></li>
+    </ul>
+    <div style="display: flex; align-items: center;">
+      <div class="search-bar">
+        <span style="color: #fff;"></span>
+        <input type="text" placeholder="Search for a movie..." />
+      </div>
+      <button class="telegram-btn">Telegram</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="policy-container">
+      <h1>Contact Us</h1>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your Name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" rows="6" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </main>
+
+ <footer>
+        <p>&copy; 2025 Moviewind. All Rights Reserved.</p>
+        <p>Designed by Soha</p>
+    </footer>
+
+</body>
+</html>

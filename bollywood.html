@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Moviewind - Bollywood</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0e1320; /* Dark blue background */
+            color: #fff;
+        }
+
+        /* ======= TOP NAVIGATION BAR ======= */
+        .top-nav {
+            background-color: #14161e; /* Darker blue/grey for top nav */
+            padding: 8px 40px; /* Adjusted padding */
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 0.85em;
+            color: #aaa;
+        }
+
+        .top-nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: color 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            color: #fff;
+        }
+
+        /* ======= MAIN HEADER STRIP (Logo, Categories, Search, Telegram) ======= */
+        .main-header-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #141d2b; /* Darker blue for header strip */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            flex-wrap: wrap; /* Allow wrapping for responsiveness */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #a5c4ff; /* Lighter blue for logo */
+            text-transform: lowercase;
+            margin-right: 20px; /* Space between logo and controls */
+        }
+
+        .main-nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Space between nav categories, search, and telegram */
+            flex-grow: 1; /* Allows it to take up available space */
+            justify-content: flex-end; /* Pushes content to the right */
+            flex-wrap: wrap; /* Allow wrapping for responsiveness */
+        }
+
+        .nav-categories {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-categories a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-categories a:hover {
+            color: #60a5fa; /* Lighter blue on hover */
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #0f172a; /* Darker blue for search input background */
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+
+        .search-box i {
+            color: #94a3b8; /* Greyish blue for search icon */
+            margin-right: 5px;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            font-size: 14px;
+            width: 150px;
+        }
+
+        .telegram-btn {
+            background: linear-gradient(to right, #3b82f6, #2563eb); /* Blue gradient for button */
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 25px; /* More rounded button */
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .telegram-btn:hover {
+            background: linear-gradient(to right, #2563eb, #1d4ed8);
+        }
+
+        /* ======= ALERT BAR ======= */
+        .alert-bar {
+            background-color: #2a2f39; /* Darker blue/grey for alert bar */
+            padding: 8px 20px;
+            text-align: center;
+            color: #cbd5e1; /* Lighter grey text */
+            font-size: 14px;
+            display: flex; /* Ensures it acts as a block and centers content */
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Space between elements */
+            position: relative; /* For close button positioning */
+            width: 100%; /* Ensures it's a full-width block */
+        }
+
+        .alert-bar .badge {
+            background-color: #60a5fa; /* Blue badge */
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        .alert-bar .close-btn {
+            position: absolute;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .alert-bar .close-btn:hover {
+            color: #ff003c;
+        }
+
+        /* ======= MOVIE GRID ======= */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            padding: 20px 40px;
+        }
+
+        .movie-card {
+            border: 2px dashed #3d5a80; /* Dashed border with blue color */
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #1e1e2f; /* Darker blue for card background */
+            transition: all 0.3s ease;
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,234,255,0.2); /* Neon glow effect */
+        }
+
+        .movie-caption {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        /* ======= FOOTER ======= */
+        footer {
+            background: #2a2f39; /* Same as header background */
+            text-align: center;
+            padding: 20px;
+            color: #ccc;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0; /* Reset margin for paragraphs within footer */
+            padding: 0;
+        }
+
+        footer p:first-child {
+            margin-bottom: 5px; /* Add some space between the two lines */
+        }
+
+
+        /* ======= RESPONSIVE ======= */
+        @media (max-width: 768px) {
+            .top-nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 8px 20px;
+            }
+            .top-nav a {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .main-header-strip {
+                flex-direction: column;
+                padding: 15px 20px;
+                align-items: flex-start;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .main-nav-controls {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .nav-categories {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .search-box, .telegram-btn {
+                margin-top: 10px;
+                width: 100%;
+                max-width: 300px; /* Constrain width on smaller screens */
+                justify-content: center;
+            }
+
+            .alert-bar {
+                flex-direction: column;
+                gap: 5px;
+                padding: 8px 10px;
+            }
+
+            .alert-bar .close-btn {
+                position: static; /* Reset position for smaller screens */
+                margin-top: 5px;
+            }
+
+            .movie-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                padding: 20px;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-links a, .nav-categories a, .search-box input, .telegram-btn {
+                font-size: 12px;
+            }
+
+            .movie-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .movie-caption {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== TOP NAVIGATION BAR ===== -->
+    <nav class="top-nav">
+        <a href="../about/about.html">About</a>
+        <a href="../contact/contact.html">Contact</a>
+        <a href="../privacy/privacy.html">Privacy</a>
+        <a href="../disclaimer/disclaimer.html">Disclaimer</a>
+    </nav>
+
+    <!-- ===== MAIN HEADER STRIP ===== -->
+    <header>
+        <div class="main-header-strip">
+            <div class="logo">moviewind</div>
+            <div class="main-nav-controls">
+                <nav class="nav-categories">
+                     <a href="../index/hollywood.html">Hollywood</a>
+                    <a href="../index/bollywood.html">Bollywood</a>
+                    <a href="../index/korean.html">Korean</a>
+                    <a href="../index/series.html">Series</a>
+                </nav>
+    <form class="search-box" id="searchForm">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchInput" placeholder="Search..." />
+    <button type="submit" style="display: none;"></button>
+    </form>
+                <button class="telegram-btn">
+                    <i class="fab fa-telegram-plane"></i> Telegram
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== ALERT ===== -->
+    <div class="alert-bar" id="alertBar">
+        <span class="badge">Alert</span> Bookmark for future visit.
+        <button class="close-btn" onclick="document.getElementById('alertBar').style.display='none';">&times;</button>
+    </div>
+
+    <!-- ===== MOVIE GRID ===== -->
+    <div class="movie-grid">
+        <!-- Example card (repeat as needed) -->
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/596650" target="_blank"><img src="https://i.pinimg.com/736x/71/6f/26/716f26707b872e00232f86084db053bd.jpg" alt="Chhhichhore "></a>
+            <p class="movie-caption">Chhhichhore Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/1045931-crew" target="_blank"><img src="https://i.pinimg.com/736x/b9/21/ee/b921eefaf6912b405d74943d1e7a28f6.jpg" alt="Crew"></a>
+            <p class="movie-caption">Crew Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/664332" target="_blank"><img src="https://i.pinimg.com/736x/d6/22/47/d622478d89a5b2aac333fde5c6aa296a.jpg" alt="Gangubai Kathiawadi"></a>
+            <p class="movie-caption">Gangubai Kathiawadi <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/360814" target="_blank"><img src="https://i.pinimg.com/736x/af/de/37/afde3751c64eab6a269ff37881f6a38e.jpg" alt="Dangal"></a>
+            <p class="movie-caption">Dangal Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/784651" target="_blank"><img src="https://i.pinimg.com/736x/43/97/ac/4397ac7b59a48d3411bebb67f937b83e.jpg" alt="Fighter"></a>
+            <p class="movie-caption">Fighter Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/1163258-12th-fail" target="_blank"><img src="https://i.pinimg.com/736x/24/ef/4c/24ef4c9c0fbbeb795082d30dab3a8e06.jpg" alt="12TH Fail"></a>
+            <p class="movie-caption">12TH Fail Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+             <a href="https://www.themoviedb.org/movie/980599-3" target="_blank"><img src="https://i.pinimg.com/736x/69/09/75/69097518bed96552bae4e9da5ca8f7d9.jpg" alt="Bhool Bhulaiyaa 3"></a>
+            <p class="movie-caption">Bhool Bhulaiyaa 3 <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/1241634" target="_blank"><img src="https://i.pinimg.com/1200x/c4/f9/b8/c4f9b84726fc7ce5e7cf6322d1899d2b.jpg" alt="Do Patti"></a>
+            <p class="movie-caption">saiyaara <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/1227128" target="_blank"><img src="https://i.pinimg.com/736x/9b/27/f1/9b27f1fb666f57199accf4a0a8f4d74f.jpg" alt="Raid 2"></a>
+            <p class="movie-caption">Raid 2 Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/611594" target="_blank"><img src="https://i.pinimg.com/1200x/33/0a/f9/330af9ef7ef064bc159dffe5763ec40d.jpg" alt="Mission Mangal"></a>
+            <p class="movie-caption">Mission Mangal <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/61202" target="_blank"><img src="https://i.pinimg.com/736x/74/b4/98/74b4984c3300255e91e6b7c0a64c8a08.jpg" alt="Bhoot Bangla"></a>
+            <p class="movie-caption">Zinndagi Na Milegi Dobara <br>Download 480p 720p 1080p</p>
+        </div>
+        <div class="movie-card">
+            <a href="https://www.themoviedb.org/movie/332835" target="_blank"><img src="https://i.pinimg.com/1200x/3a/c8/ab/3ac8ab69f93dcd42412110a4ce80e845.jpg" alt="Hindi Medium "></a>
+            <p class="movie-caption">Piku Full Movie <br>Download 480p 720p 1080p</p>
+        </div>
+    </div>
+
+     <!-- Search Filter Script -->
+  <script>
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const input = this.value.toLowerCase();
+    const movies = document.querySelectorAll('.movie-card');
+
+    movies.forEach(movie => {
+      const caption = movie.querySelector('.movie-caption').textContent.toLowerCase();
+      if (caption.includes(input)) {
+        movie.style.display = 'block';
+      } else {
+        movie.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2025 Moviewind. All Rights Reserved.</p>
+        <p>Designed by Soha</p>
+    </footer>
+
+</body>
+</html>
