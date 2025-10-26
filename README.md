@@ -28,7 +28,7 @@ Welcome to **Moviewind**, a responsive and cleanly designed multi-page movie web
 ### 👩‍💻 Author
 
 **Soha Adnan**  
-🎓 Pursuing Bachelor's in Data Science  
+🎓 Bachelor's in Data Science  
 📍 Codentix Intern  
 🌐 [GitHub Profile](https://github.com/Soha-025)
 
