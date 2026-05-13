@@ -29,13 +29,13 @@ Welcome to **Moviewind**, a responsive and cleanly designed multi-page movie web
 
 **Soha Adnan**  
 🎓 Bachelor's in Data Science  
-🌐 [GitHub Profile](https://github.com/Soha-025)
+🌐 [LinkedIn Profile](https://www.linkedin.com/in/soha-adnan-36b117349/)
 
 ---
 
 ### 📁 Repo Info
 
-> This repository is part of my internship at **Codentix**.  
+> This repository is part of my internship at **InternIntelligence**.  
 > All feedback and suggestions are welcome!
 
 ---
